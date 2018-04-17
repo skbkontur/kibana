@@ -30,7 +30,7 @@ export function savedObjectsMixin(kbnServer, server) {
     const adminCluster = server.plugins.elasticsearch.getCluster('admin');
 
     try {
-      const index = server.config().get('kibana.index');
+      const index = server.config().get('kibana.index') + '-' + global.index_suffix;
       await adminCluster.callWithInternalUser('indices.putTemplate', {
         name: `kibana_index_template:${index}`,
         body: {
@@ -64,7 +64,7 @@ export function savedObjectsMixin(kbnServer, server) {
 
   server.decorate('server', 'savedObjectsClientFactory', ({ callCluster }) => {
     return new SavedObjectsClient({
-      index: server.config().get('kibana.index'),
+      index: server.config().get('kibana.index') + '-' + global.index_suffix,
       mappings: server.getKibanaIndexMappingsDsl(),
       callCluster,
       onBeforeWrite,

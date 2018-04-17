@@ -76,6 +76,13 @@ export default class KbnServer {
           this.ready = constant(Promise.resolve());
           return this.listen();
         }
+      },
+
+      (_, server) => {
+        server.ext('onPreHandler', function (req, reply) {
+          global.index_suffix = req.headers.host;
+          return reply.continue();
+        });
       }
     ));
 
