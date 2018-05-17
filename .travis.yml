@@ -1,7 +1,4 @@
 sudo: required
-branches:
-  only:
-  - elk6
 services:
  - docker
 language: node_js
