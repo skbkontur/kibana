@@ -1,0 +1,31 @@
+sudo: required
+branches:
+  only:
+  - elk6
+services:
+ - docker
+language: node_js
+node_js:
+  - "6.12.2"
+before_install:
+  - kibana_version=$(node -e "console.log(require('./package.json').version);")
+  - elopen_link=$(node -e "console.log(require('./package.json').plugins.elopen);")
+  - sentinl_link=$(node -e "console.log(require('./package.json').plugins.sentinl);")
+  - elopen_name=$(basename "$elopen_link")
+  - sentinl_name=$(basename "$sentinl_link")
+install:
+  - yarn
+  - yarn build --skip-os-packages
+  - cp Dockerfile ./build/
+  - cd ./build/
+  - rm -rf kibana
+  - mv *linux* kibana
+  - wget $elopen_link
+  - wget $sentinl_link
+script:
+  - ./kibana/bin/kibana-plugin install file://$(pwd)/$elopen_name
+  - ./kibana/bin/kibana-plugin install file://$(pwd)/$sentinl_name
+  - docker build -t weslyg/kibana:$kibana_version .
+  - docker images
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push weslyg/kibana:$kibana_version
