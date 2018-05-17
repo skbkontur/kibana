@@ -22,7 +22,9 @@ install:
 script:
   - ./kibana/bin/kibana-plugin install file://$(pwd)/$elopen_name
   - ./kibana/bin/kibana-plugin install file://$(pwd)/$sentinl_name
-  - docker build -t weslyg/kibana:$kibana_version .
+  - docker build -t skbkontur/kibana:$kibana_version .
+  - docker tag skbkontur/kibana:$kibana_version skbkontur/kibana:latest
   - docker images
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push weslyg/kibana:$kibana_version
+  - docker push skbkontur/kibana:$kibana_version
+  - docker push skbkontur/kibana:latest
