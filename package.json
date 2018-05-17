@@ -10,6 +10,10 @@
     "dashboards",
     "dashboarding"
   ],
+  "plugins": {
+    "elopen": "https://github.com/skbkontur/elopen/releases/download/1.0.1/elopen-1.0.1.zip",
+    "sentinl": "https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.3-3/sentinl-v6.2.3.zip"
+  },
   "private": false,
   "version": "6.2.3",
   "branch": "6.x",

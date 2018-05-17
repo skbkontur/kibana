@@ -1,4 +1,4 @@
-# Kibana 6.2.3
+# Kibana 6.2.3 [![Build Status](https://travis-ci.org/skbkontur/kibana.svg?branch=elk6)](https://travis-ci.org/skbkontur/kibana)
 
 Kibana is your window into the [Elastic Stack](https://www.elastic.co/products). Specifically, it's
 an open source ([Apache Licensed](LICENSE.md)),
