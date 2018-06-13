@@ -1,6 +1,7 @@
 FROM centos
 
 RUN mkdir /opt/kibana
+RUN mkdir /var/log/kibana
 WORKDIR /opt/kibana
 
 COPY ./kibana /opt/kibana
