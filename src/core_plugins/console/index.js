@@ -138,6 +138,7 @@ export default function (kibana) {
     uiExports: {
       apps: apps,
       hacks: ['plugins/console/hacks/register'],
+      // отключить если хотчешь что бы доступ к devtools отклюился полностью
       devTools: ['plugins/console/console'],
 
       injectDefaultVars(server) {
