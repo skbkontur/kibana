@@ -29,7 +29,7 @@ export default function (kibana) {
     config: function (Joi) {
       return Joi.object({
         enabled: Joi.boolean().default(true),
-        defaultAppId: Joi.string().default('home'),
+        defaultAppId: Joi.string().default('discover'),
         index: Joi.string().default('.kibana')
       }).default();
     },
