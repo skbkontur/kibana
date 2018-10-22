@@ -11,7 +11,7 @@
     "dashboarding"
   ],
   "plugins": {
-    "elopen": "https://github.com/skbkontur/elopen/releases/download/v1.0.9/elopen-1.0.9.zip",
+    "elopen": "https://github.com/skbkontur/elopen/releases/download/2.0.0/elopen-2.0.0.zip",
     "sentinl": "https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.3-3/sentinl-v6.2.3.zip"
   },
   "private": false,
